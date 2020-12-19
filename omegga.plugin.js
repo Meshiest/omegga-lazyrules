@@ -20,9 +20,9 @@ class LazyRules {
   }
 
   // show the rules to a player
-  showRules(name) {
+  showRules(player) {
     for (const rule of this.rules) {
-      Omegga.whisper(name, '"' + rule.replace(/\$1/g, name).replace(/"/g, '\\"') + '"');
+      Omegga.whisper(player, '"' + rule.replace(/\$1/g, player.name).replace(/"/g, '\\"') + '"');
     }
   }
 
@@ -53,14 +53,20 @@ class LazyRules {
         Omegga.broadcast('"Cleared record for first joins"');
       })
       .on('chatcmd:rules', name => {
-        this.showRules(name);
+        const player = Omegga.getPlayer(name);
+        if (player) this.showRules(player);
       });
 
     // determine of rules should be display on join
     if (this.config['on-join'])
       Omegga.on('join', async player => {
-        if (!this.config['only-first-join'] || await this.isFirstJoin(player.id))
-          this.showRules(player.name);
+        try {
+          if (!this.config['only-first-join'] || await this.isFirstJoin(player.id)) {
+            this.showRules(player);
+          }
+        } catch (err) {
+          console.error('Error displaying rules', err);
+        }
       });
   }
 

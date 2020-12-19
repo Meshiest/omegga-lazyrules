@@ -1,0 +1,7 @@
+<b><size="20">Welcome to the server, $1!</></>
+The rules are as follows:
+  1. No <i>Harassment</>
+  2. No <code>Spam</>
+  3. Don't build on other people's stuff
+<color="ffff00">Take care!</>
+Check out this <link="https://google.com">link</>!

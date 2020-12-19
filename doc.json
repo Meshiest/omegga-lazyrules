@@ -1,0 +1,31 @@
+{
+  "name": "lazyrules",
+  "description": "Prints out rules",
+  "author": "cake",
+  "config": {
+    "on-join": {
+      "description": "Print rules when player joins",
+      "type": "boolean",
+      "default": true
+    },
+    "only-first-join": {
+      "description": "Only print rules when a player joins for the first time",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "commands": [
+    {
+      "name": "!rules",
+      "description": "Prints out the rules",
+      "example": "!rules",
+      "args": []
+    },
+    {
+      "name": "!rules:reset",
+      "description": "Host only - clears all first joins",
+      "example": "!rules:reset",
+      "args": []
+    }
+  ]
+}

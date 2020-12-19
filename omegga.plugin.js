@@ -3,6 +3,21 @@ const path = require('path');
 
 const RULES_FILE = path.join(__dirname, 'RULES.txt');
 
+const CooldownProvider = (length=1000) => {
+  const lastCommand = {};
+
+  return name => {
+    const now = Date.now();
+
+    const isOk = !lastCommand[name] || (lastCommand[name] + length < now);
+    if (isOk) {
+      lastCommand[name] = now;
+    }
+
+    return isOk;
+  };
+};
+
 
 class LazyRules {
   // the constructor also contains an omegga if you don't want to use the global one
@@ -11,6 +26,8 @@ class LazyRules {
     this.omegga = omegga;
     this.config = config;
     this.store = store;
+
+    this.cooldown = CooldownProvider(Math.max(this.config.cooldown, 1) * 1000);
 
     // read the rules file and remove blank lines
     console.info('Reading rules from file', RULES_FILE);
@@ -53,6 +70,7 @@ class LazyRules {
         Omegga.broadcast('"Cleared record for first joins"');
       })
       .on('chatcmd:rules', name => {
+        if (!this.cooldown(name)) return;
         const player = Omegga.getPlayer(name);
         if (player) this.showRules(player);
       });

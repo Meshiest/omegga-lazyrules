@@ -12,6 +12,11 @@
       "description": "Only print rules when a player joins for the first time",
       "type": "boolean",
       "default": true
+    },
+    "cooldown": {
+      "description": "Minimum time between !rules (seconds)",
+      "type": "number",
+      "default": 60
     }
   },
   "commands": [

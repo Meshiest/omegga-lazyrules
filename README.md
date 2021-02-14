@@ -6,6 +6,13 @@ An rules plugin for [omegga](https://github.com/brickadia-community/omegga). A5 
 
 ## Install
 
+Easy:
+
+* `omegga install gh:Meshiest/lazyrules`
+* Modify the RULES.txt file with your rules. All `$1` will be replaced with the player name
+
+Manual:
+
 * `git clone https://github.com/meshiest/omegga-lazyrules lazyrules` in `plugins` directory
 * Modify the RULES.txt file with your rules. All `$1` will be replaced with the player name
 

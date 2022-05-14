@@ -23,13 +23,13 @@
     {
       "name": "!rules",
       "description": "Prints out the rules",
-      "example": "!rules",
+      "example": "!rules or /rules",
       "args": []
     },
     {
       "name": "!rules:reset",
       "description": "Host only - clears all first joins",
-      "example": "!rules:reset",
+      "example": "!rules:reset or /rules:reset",
       "args": []
     }
   ]

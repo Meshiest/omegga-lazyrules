@@ -1,0 +1,6 @@
+RULES.txt
+.build/
+node_modules/
+omegga.d.ts
+package-lock.json
+disabled.omegga

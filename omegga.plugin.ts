@@ -9,7 +9,7 @@ import OmeggaPlugin, {
 import fs from 'fs';
 import path from 'path';
 
-const RULES_FILE = path.join(__dirname, 'RULES.txt');
+const RULES_FILE = path.join(__dirname, '../RULES.txt');
 
 const CooldownProvider = (length = 1000) => {
   const lastCommand = {};
